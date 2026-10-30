@@ -1,0 +1,326 @@
+<title>Jonathan Prabu Hook Reel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: an edit suite. Each ad sits in a phone frame beside its beat sheet, timecoded like a cut list. */
+:root {
+  --bg: #eceef1; --panel: #ffffff; --ink: #15171c; --muted: #5d6573; --line: #d3d8e0;
+  --tally: #d7322a; --real: #127a52; --chip: #e2e6ec;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121418; --panel: #1b1e24; --ink: #eef0f4; --muted: #9aa3b2; --line: #2d323b;
+  --tally: #ff5a4f; --real: #3fd193; --chip: #262a32; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121418; --panel: #1b1e24; --ink: #eef0f4; --muted: #9aa3b2; --line: #2d323b;
+  --tally: #ff5a4f; --real: #3fd193; --chip: #262a32; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 400 17px/1.55 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 48px 72px; display: flex; flex-direction: column; gap: 72px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.eyebrow { font: 600 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.rec { display: inline-flex; align-items: center; gap: 8px; }
+.rec::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--tally); }
+
+/* hero */
+header { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+header h1 { font-size: clamp(44px, 7.4vw, 92px); font-weight: 900; font-stretch: 118%; line-height: .92; letter-spacing: -.01em; margin-top: 14px; }
+header h1 span { color: var(--tally); }
+.lede { display: flex; flex-direction: column; gap: 14px; max-width: 46ch; }
+.lede p { color: var(--muted); }
+.lede strong { color: var(--ink); font-weight: 600; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
+.stats div { background: var(--panel); padding: 14px 16px; }
+.stats b { display: block; font: 800 28px var(--display); font-stretch: 110%; font-variant-numeric: tabular-nums; }
+.stats small { color: var(--muted); font-size: 13px; line-height: 1.3; display: block; }
+
+/* reel */
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
+.sec-head h2 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; font-stretch: 112%; }
+.sec-head p { color: var(--muted); max-width: 52ch; }
+.reel { display: flex; flex-direction: column; gap: 56px; }
+.ad { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; }
+.phone { background: #0b0c0f; border-radius: 34px; padding: 10px; box-shadow: 0 20px 50px rgba(10,14,22,.22); max-width: 100%; }
+.phone video { display: block; width: 100%; border-radius: 26px; background: #000; }
+.phone.wide { border-radius: 18px; padding: 8px; } .phone.wide video { border-radius: 12px; }
+.meta { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.meta-top { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.tag { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; background: var(--chip); color: var(--ink); }
+.tag.hook { background: var(--tally); color: #fff; }
+.tag.real { background: transparent; color: var(--real); box-shadow: inset 0 0 0 1.5px var(--real); }
+.tag.spec { background: transparent; color: var(--muted); box-shadow: inset 0 0 0 1.5px var(--line); }
+.meta h3 { font-size: clamp(26px, 3.4vw, 36px); font-weight: 800; font-stretch: 105%; line-height: 1.05; }
+.why { max-width: 62ch; }
+.spec-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.spec-grid div { border-top: 1px solid var(--line); padding-top: 8px; }
+.spec-grid dt { font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.spec-grid dd { margin: 2px 0 0; font-size: 15px; line-height: 1.35; }
+.beats { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; overflow: hidden; }
+.beats ol { list-style: none; margin: 0; padding: 0; }
+.beats li { display: grid; grid-template-columns: 116px 1fr; gap: 14px; padding: 9px 14px; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.4; }
+.beats li:first-child { border-top: 0; }
+.beats .tc { font: 400 13px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 1px; }
+.beats li.h { background: color-mix(in srgb, var(--tally) 9%, var(--panel)); }
+.beats li.h .tc { color: var(--tally); font-weight: 600; }
+.beats-label { font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 8px 14px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; }
+
+/* types */
+.types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.type { background: var(--panel); padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+.type h4 { margin: 0; font: 700 18px var(--display); font-stretch: 105%; }
+.type p { color: var(--muted); font-size: 15px; line-height: 1.45; }
+.type .fit { font: 400 12px var(--mono); color: var(--ink); margin-top: auto; padding-top: 8px; }
+
+/* pipeline */
+.pipe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: s; }
+.step { position: relative; padding: 18px 20px 20px 0; border-top: 2px solid var(--ink); display: flex; flex-direction: column; gap: 6px; }
+.step::before { counter-increment: s; content: counter(s, decimal-leading-zero); font: 600 12px var(--mono); color: var(--tally); }
+.step h4 { margin: 0; font: 700 19px var(--display); font-stretch: 108%; }
+.step p { color: var(--muted); font-size: 15px; line-height: 1.45; }
+.step code { font: 400 13px var(--mono); background: var(--chip); padding: 1px 5px; border-radius: 3px; color: var(--ink); }
+.loop { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--line); border-radius: 6px; color: var(--muted); font-size: 15px; }
+.loop b { color: var(--ink); }
+
+footer { border-top: 2px solid var(--ink); padding-top: 18px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 15px; }
+footer b { color: var(--ink); }
+footer .sel { user-select: all; font-family: var(--mono); font-size: 14px; color: var(--ink); }
+
+@media (max-width: 860px) {
+  header { grid-template-columns: 1fr; }
+  .ad { grid-template-columns: 1fr; }
+  .phone { width: min(300px, 100%); }
+  .phone.wide { width: min(360px, 100%); }
+  .types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .spec-grid, .types, .pipe { grid-template-columns: 1fr; }
+  .beats li { grid-template-columns: 92px 1fr; }
+  .stats b { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { video { animation: none; } }
+</style>
+
+<div class="wrap">
+<header>
+  <div>
+    <div class="eyebrow rec">Hook reel · AI Creative Engineer application</div>
+    <h1>Seven ads.<br>Six hooks.<br><span>One agent</span> pipeline.</h1>
+  </div>
+  <div class="lede">
+    <p><strong>Jonathan Prabu.</strong> I have been making people stop and watch since 2001: channel IDs, 20+ TV shows for Sun TV and Vijay TV, the launch of A.R. Rahman Live in Concert in 3D, then 8 years of performance ads.</p>
+    <p>Every video on this page was written from a hook brief, then animated, sound-designed and encoded by a pipeline I built with Claude Code. No editing timeline was opened.</p>
+    <div class="stats">
+      <div><b>0–3 s</b><small>where each hook lands</small></div>
+      <div><b>3</b><small>platform formats: 9:16, 4:5, Shorts</small></div>
+      <div><b>−52%</b><small>cost per sale on the real case in ad 04</small></div>
+    </div>
+  </div>
+</header>
+
+<section style="display:flex;flex-direction:column;gap:32px" id="mystory">
+  <div class="sec-head"><h2>My story, in 50 seconds</h2><p>Before the ads, the person who made them.</p></div>
+  <article class="ad">
+    <div class="phone"><video src="v/07-emotional-founder-story-reels.mp4" poster="v/07-emotional-founder-story-reels-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <div class="meta">
+      <div class="meta-top"><span class="tag hook">Emotional story</span><span class="tag">Instagram Reels · 9:16 · 50 s</span><span class="tag real">True story · every fact from my career</span></div>
+      <h3>"In 2001, I had a few seconds to stop you changing the channel."</h3>
+      <p class="why">Putting 25 years into 50 seconds was more emotional than I expected. TV channel IDs, 20+ shows for Sun TV and Vijay TV, a packed concert ground in Bangalore, a company that grew from 2 people to 250, and now AI agents. Same job, new tools.</p>
+      <dl class="spec-grid"><div><dt>Audience</dt><dd>Emotional (story, meaning)</dd></div><div><dt>Colour</dt><dd>Deep green, black and amber</dd></div><div><dt>Type and sound</dt><dd>Elegant serif, slow piano and strings</dd></div></dl>
+    </div>
+  </article>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:32px" id="before-ai">
+  <div class="sec-head"><h2>Before AI: a TV promo I directed</h2><p>2011, Channel UFX. Same job as the ads below: get people to stop and act. This one sold concert tickets.</p></div>
+  <article class="ad">
+    <div class="phone wide"><video src="v/arr-live-in-concert-promo-2011.mp4" poster="v/arr-live-in-concert-promo-2011-poster.jpg" muted playsinline controls preload="metadata"></video></div>
+    <div class="meta">
+      <div class="meta-top"><span class="tag hook">Star power + date</span><span class="tag">TV · 4:3 · 66 s</span><span class="tag real">Real campaign · 2011</span></div>
+      <h3>A.R. Rahman Live in Concert in 3D</h3>
+      <p class="why">I was creative director for the concert at Palace Grounds, Bengaluru, on 29 May 2011. I directed every creative: graphic design, print, this TV promo, on-ground creatives and the OOH (hoardings, bus backs, bus grab handles, roadshows). I also ran the media planning, radio cross-promotion and press meet, and directed the live multi-camera switching and the online edit of the concert for TV.</p>
+      <dl class="spec-grid"><div><dt>Channel</dt><dd>Channel UFX (TV)</dd></div><div><dt>Goal</dt><dd>Ticket sales</dd></div><div><dt>Media mix</dt><dd>TV, OOH, radio, print, press, on-ground</dd></div></dl>
+      <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+        <li class="h"><span class="tc">0 – 33</span><span>Hook: the star. A montage of A.R. Rahman in the studio and on stage, cut with him speaking to camera</span></li>
+        <li><span class="tc">33 – 36</span><span>The offer: "AR Rahman Live in Concert", 29 May 2011, 7 PM, Palace Grounds</span></li>
+        <li><span class="tc">36 – 51</span><span>How to buy: ticket website, phone numbers, SMS code, tickets at the venue from 20 May</span></li>
+        <li><span class="tc">51 – 57</span><span>Presenters, sponsors and media partners</span></li>
+        <li><span class="tc">57 – 66</span><span>Channel UFX end card</span></li>
+      </ol></div>
+    </div>
+  </article>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:40px">
+  <div class="sec-head"><h2>The reel</h2><p>Tap a video for sound. Ads 01 to 03, 02b and 06 are spec ads for brands I made up. Ads 04 and 05 tell real results from my own client work.</p></div>
+  <div class="reel">
+
+    <article class="ad" id="danger">
+      <div class="phone"><video src="v/01-danger-griplock-tiktok.mp4" poster="v/01-danger-griplock-tiktok-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Danger hook</span><span class="tag">TikTok · 9:16 · 18.5 s</span><span class="tag spec">Spec ad · fictional brand</span></div>
+        <h3>01 · GRIPLOCK, "The Edge"</h3>
+        <p class="why">A phone buzzes toward the edge of a table. Everyone has lived that half-second, so the body reacts before the brain decides to scroll. I freeze the frame mid-fall and say what the viewer is feeling, which buys two more seconds of attention.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Action (fast deciders)</dd></div><div><dt>Colour</dt><dd>Red, orange, black for urgency</dd></div><div><dt>Type</dt><dd>Condensed caps (Anton)</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 1.7</span><span>Phone buzzes toward the edge, warning ring pulses</span></li>
+          <li class="h"><span class="tc">1.7 – 3.7</span><span>It tips. Freeze frame, colour drains: "WAIT." then "You flinched. Didn't you?"</span></li>
+          <li><span class="tc">3.7 – 5.0</span><span>Fall, impact, white flash, camera shake</span></li>
+          <li><span class="tc">5.0 – 6.0</span><span>Payoff: "Not a scratch."</span></li>
+          <li><span class="tc">6.0 – 9.0</span><span>Brand reveal and tagline, held long enough to read</span></li>
+          <li><span class="tc">9.0 – 14.8</span><span>Three features, 1.4 s apart, then all three held together</span></li>
+          <li><span class="tc">14.9 – 18.5</span><span>CTA: "Tap to shop", held for 3.5 s</span></li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="ad" id="mistake">
+      <div class="phone"><video src="v/02-mistake-listinglint-reels.mp4" poster="v/02-mistake-listinglint-reels-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Mistake hook</span><span class="tag">Instagram Reels · 9:16 · 19 s</span><span class="tag spec">Spec ad · fictional brand</span></div>
+        <h3>02 · ListingLint, "FERE"</h3>
+        <p class="why">A sale banner types out "BUY 1 GET 1 FERE". People cannot leave a typo alone: they stay to see if anyone notices, and many comment. The mistake is the product demo, and the CTA asks people to comment the typo, which feeds the algorithm.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Social (comment and share)</dd></div><div><dt>Colour</dt><dd>Yellow and pink, warm</dd></div><div><dt>Type</dt><dd>Friendly grotesk + hand-drawn mark</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 1.4</span><span>Banner types itself out with the typo, cursor blinking</span></li>
+          <li class="h"><span class="tc">1.4 – 3.3</span><span>"Spot it?", then a red hand-drawn circle and "FERE??"</span></li>
+          <li><span class="tc">3.3 – 4.0</span><span>Letters swap into FREE</span></li>
+          <li><span class="tc">4.0 – 7.0</span><span>"You spotted it in under 2 seconds. So will every shopper."</span></li>
+          <li><span class="tc">7.0 – 9.5</span><span>ListingLint and its one-line promise, held to read</span></li>
+          <li><span class="tc">9.5 – 15.2</span><span>Checklist ticks in 1.2 s apart, then "1 fix: FERE → FREE"</span></li>
+          <li><span class="tc">15.2 – 19.0</span><span>CTA: comment "FERE" for early access, held for nearly 4 s</span></li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="ad" id="ugc">
+      <div class="phone"><video src="v/06-ugc-listinglint-screenrecord.mp4" poster="v/06-ugc-listinglint-screenrecord-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Mistake hook, UGC-style</span><span class="tag">TikTok / Reels · 9:16 · 17 s</span><span class="tag spec">Spec ad · fictional creator and brand</span></div>
+        <h3>02b · ListingLint, the creator cut</h3>
+        <p class="why">The same product and the same typo as ad 02, told the way a small seller would post it: a screen recording of their own ad getting roasted in the comments. Native captions, a REC badge and tap marks make it read as a person, not a brand. That is why UGC-style ads usually earn more trust and cost less per result than polished ones.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Social (other small sellers)</dd></div><div><dt>Look</dt><dd>Phone screen recording, platform-style captions</dd></div><div><dt>Voice</dt><dd>First person, lowercase, emoji</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 2.8</span><span>Frame one shows the live ad with "GET 1 FERE": "my sale ad went live at 9 AM…"</span></li>
+          <li class="h"><span class="tc">2.8 – 5.6</span><span>Comments sheet slides up, 214 comments roasting the typo</span></li>
+          <li><span class="tc">5.6 – 7.4</span><span>Red pen circles FERE: "ONE letter."</span></li>
+          <li><span class="tc">7.4 – 13.6</span><span>Cut to ListingLint: paste the ad, check, it flags the typo and a wrong price</span></li>
+          <li><span class="tc">13.6 – 17.0</span><span>Fixed ad, "link in bio if you sell online"</span></li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="ad" id="comedy">
+      <div class="phone"><video src="v/03-comedy-nope-shorts.mp4" poster="v/03-comedy-nope-shorts-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Comedy hook</span><span class="tag">YouTube Shorts · 9:16 · 19.5 s</span><span class="tag spec">Spec ad · fictional brand</span></div>
+        <h3>03 · NOPE., "Quick Call"</h3>
+        <p class="why">A POV everyone in an office has lived: the 4:58 PM "quick call". The record scratch and deadpan narrator card break the ad pattern, and the time-lapse to 7:12 PM is the joke. People share what feels like their own life.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Social (relatable, shareable)</dd></div><div><dt>Colour</dt><dd>Night chat UI, then hazard yellow</dd></div><div><dt>Type</dt><dd>Bebas POV caption + chat UI</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 3.2</span><span>"POV: your manager at 4:58 PM": "hey, quick call?" "5 mins max 🙂", one message per second</span></li>
+          <li class="h"><span class="tc">3.2 – 5.0</span><span>Record scratch, freeze: "It was not 5 mins." (narrator), held for the laugh</span></li>
+          <li><span class="tc">5.0 – 7.0</span><span>Clock races to 7:12 PM, call timer climbs, the emoji gives up</span></li>
+          <li><span class="tc">7.2 – 8.8</span><span>"We've all been there."</span></li>
+          <li><span class="tc">8.8 – 15.6</span><span>NOPE. and its promise, then three features 1.3 s apart</span></li>
+          <li><span class="tc">15.6 – 19.5</span><span>CTA: "Get NOPE. free", held for nearly 4 s</span></li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="ad" id="emotional">
+      <div class="phone"><video src="v/08-emotional-bakery-reels.mp4" poster="v/08-emotional-bakery-reels-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Emotional hook</span><span class="tag">Reels / Pinterest · 9:16 · 40.5 s</span><span class="tag spec">Spec ad · fictional bakery</span></div>
+        <h3>06 · Forno Lucchesi, "The Loaf Aside"</h3>
+        <p class="why">No product shot, no price, no offer until the very end. The hook is a question the viewer wants answered: why bake the same bread every morning for 41 years? The turn ("It's for whoever can't pay today.") is the reason people remember the brand and share it. Emotional audiences buy from brands whose values they can feel.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Emotional (values, story)</dd></div><div><dt>Colour</dt><dd>Plum night turning to amber dawn</dd></div><div><dt>Type and sound</dt><dd>Serif + handwritten tag, music-box waltz</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 7.3</span><span>Fade up from black. 4:30 AM, a bakery light flickers on: "He's baked the same bread every morning for 41 years."</span></li>
+          <li><span class="tc">7.3 – 11.9</span><span>"Before the city wakes up, the oven is already warm."</span></li>
+          <li><span class="tc">11.9 – 20.7</span><span>"Every day, he keeps one loaf aside." A handwritten tag: "Not for sale."</span></li>
+          <li class="h"><span class="tc">20.7 – 26.3</span><span>The turn, as the door opens to morning: "It's for whoever can't pay today."</span></li>
+          <li><span class="tc">26.3 – 31.3</span><span>"41 years. Nobody has been turned away."</span></li>
+          <li><span class="tc">31.3 – 40.5</span><span>Forno Lucchesi, panetteria since 1985. "Same hands. Same bread. Every morning." Order fresh, link in bio, then a slow fade to black</span></li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="ad" id="curiosity">
+      <div class="phone"><video src="v/04-curiosity-bundle-casestudy-reels.mp4" poster="v/04-curiosity-bundle-casestudy-reels-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Curiosity gap</span><span class="tag">Reels / TikTok · 9:16 · 23 s</span><span class="tag real">Real result · client under NDA</span></div>
+        <h3>04 · "Same-ish budget. 2× the orders."</h3>
+        <p class="why">Result first, cause held back. Orders count from 118 to 242 before the viewer knows why, and "it wasn't a bigger budget" closes the easy answer. The open loop only closes if you keep watching. Every number is from a baby and maternity brand I turned around in one month.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Practical (founders, marketers)</dd></div><div><dt>Colour</dt><dd>Deep blue for trust, green for results</dd></div><div><dt>Type</dt><dd>Big numerals, plain explanations</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 3.2</span><span>"SAME-ISH BUDGET. 2× THE ORDERS." Counter runs 118 → 242, then holds</span></li>
+          <li class="h"><span class="tc">3.2 – 5.4</span><span>"It wasn't a bigger budget. It was 3 changes."</span></li>
+          <li><span class="tc">5.6 – 13.6</span><span>One change every 2.3 s: Google → Facebook budget move, likely-buyer audiences, mom + baby bundle retargeting</span></li>
+          <li><span class="tc">13.8 – 18.9</span><span>Results 1.2 s apart: cost per sale ₹3,245 → ₹1,573 (−52%), orders 2.05×, ad revenue +95%, profitable next month</span></li>
+          <li><span class="tc">19.0 – 23.0</span><span>CTA: comment "BUNDLE" for the playbook, held for 4 s</span></li>
+        </ol></div>
+      </div>
+    </article>
+
+    <article class="ad" id="number">
+      <div class="phone wide"><video src="v/05-hardnumber-crm-linkedin.mp4" poster="v/05-hardnumber-crm-linkedin-poster.jpg" muted loop playsinline autoplay controls preload="metadata"></video></div>
+      <div class="meta">
+        <div class="meta-top"><span class="tag hook">Hard number + contrast</span><span class="tag">LinkedIn feed · 4:5 · 25 s</span><span class="tag real">Real build · public UK companies</span></div>
+        <h3>05 · "30 accounts. 8 hidden errors."</h3>
+        <p class="why">B2B buyers scroll past adjectives and stop for a specific number. A grid of 30 green ticks looks safe, then a scan line turns 8 of them red. The counter in the headline climbs with it. The errors are the ones I found in a real HubSpot and Clay build.</p>
+        <dl class="spec-grid"><div><dt>Audience</dt><dd>Practical (RevOps, sales leaders)</dd></div><div><dt>Colour</dt><dd>White and slate, red only for errors</dd></div><div><dt>Type</dt><dd>Clean sans, no decoration</dd></div></dl>
+        <div class="beats"><div class="beats-label"><span>Beat sheet</span><span>s</span></div><ol>
+          <li class="h"><span class="tc">0.0 – 1.4</span><span>"Your CRM list looked clean. 30 target accounts. 0 hidden errors." All ticks green</span></li>
+          <li class="h"><span class="tc">1.4 – 4.9</span><span>Scan line sweeps, 8 cells flip red, the 0 counts up to 8, then holds</span></li>
+          <li><span class="tc">5.0 – 12.6</span><span>One finding every 2 s: 4 wrong enrichment results, 3 wrong domains, 1 acquisition duplicate, all three held together</span></li>
+          <li><span class="tc">12.7 – 20.6</span><span>"All caught before a single email went out.", then root cause and fix, held about 5 s to read</span></li>
+          <li><span class="tc">20.7 – 25.0</span><span>"VERIFY, THEN SEND.", held for 4 s</span></li>
+        </ol></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:28px">
+  <div class="sec-head"><h2>How the agent makes them</h2><p>Each ad starts as a short brief. The pipeline turns it into a finished MP4, with its own synthesized music bed matched to the mood: trap, pluck pop, comedy swing, lo-fi, tech arpeggio or bedroom pop. Changing a hook or a format means editing the brief and running it again.</p></div>
+  <div class="pipe">
+    <div class="step"><h4>Brief</h4><p>Goal, audience trait (Practical, Action, Social or Emotional), platform, hook type, palette and type, in one <code>brief.json</code>.</p></div>
+    <div class="step"><h4>Script and beats</h4><p>Claude writes the beat sheet: the 0–3 s hook, a payoff every 2–3 s, one CTA. I edit for voice and truth.</p></div>
+    <div class="step"><h4>Scene code</h4><p>Claude Code writes the scene as HTML and CSS motion, where every frame is a function of time, so any frame can be re-rendered exactly.</p></div>
+    <div class="step"><h4>Render</h4><p>Headless Chromium captures 30 frames a second at 1080 × 1920 or 1080 × 1350 and pipes them to ffmpeg.</p></div>
+    <div class="step"><h4>Sound design</h4><p>A cue sheet in the brief drives synthesized hits, risers, whooshes and a beat, timed to the frame.</p></div>
+    <div class="step"><h4>Encode</h4><p>H.264 and AAC per platform, captions burned in for sound-off viewing, plus a poster frame.</p></div>
+    <div class="step"><h4>Variants</h4><p>Swap the hook, the first line or the colour in the brief and render A/B versions in minutes.</p></div>
+    <div class="step"><h4>Learn</h4><p>Judge on 3-second hold, completion and cost per result, then feed the winning hooks into the next brief.</p></div>
+  </div>
+  <p class="loop"><b>Next step with your stack:</b> plug in AI footage, voice and avatar models for live-action scenes, and let the agent pick hooks from last week's winners automatically.</p>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:28px">
+  <div class="sec-head"><h2>Short-form formats I build</h2><p>The hook decides whether they watch. The format decides what they get for watching. Each one maps to an audience trait and the platforms where it works.</p></div>
+  <div class="types">
+    <div class="type"><h4>Product demo</h4><p>The product doing its one job, shown in the first second.</p><span class="fit">Action · TikTok, Reels</span></div>
+    <div class="type"><h4>UGC-style testimonial</h4><p>A customer to camera, phone-shot look, real words.</p><span class="fit">Social · Reels, TikTok, Meta ads</span></div>
+    <div class="type"><h4>Before and after</h4><p>Split screen or a hard cut between the problem and the result.</p><span class="fit">Action, Practical · all</span></div>
+    <div class="type"><h4>POV skit</h4><p>A situation the viewer has lived, played for a laugh.</p><span class="fit">Social · Shorts, TikTok</span></div>
+    <div class="type"><h4>Explainer</h4><p>One idea in 15 seconds with kinetic type, the Dollar Shave Club playbook.</p><span class="fit">Practical · YouTube, LinkedIn</span></div>
+    <div class="type"><h4>How-to in 60 seconds</h4><p>Steps shown, not told, in the Tasty recipe style.</p><span class="fit">Practical · YouTube, Reels</span></div>
+    <div class="type"><h4>Data story</h4><p>One surprising number animated into a case study.</p><span class="fit">Practical · LinkedIn</span></div>
+    <div class="type"><h4>Behind the scenes</h4><p>How it is made, by whom, with the rough edges left in.</p><span class="fit">Emotional, Social · Stories</span></div>
+    <div class="type"><h4>Founder story</h4><p>Why the brand exists, told in one honest minute.</p><span class="fit">Emotional · Reels, TikTok</span></div>
+    <div class="type"><h4>Trend and meme remix</h4><p>A live format or sound, bent to the brand within 48 hours.</p><span class="fit">Social · TikTok, Reels</span></div>
+    <div class="type"><h4>Animated carousel</h4><p>Static carousel slides turned into motion for Reels.</p><span class="fit">Practical, Emotional · Instagram</span></div>
+    <div class="type"><h4>Catalogue ads at scale</h4><p>One template, every product, generated from the product feed.</p><span class="fit">Action · Meta, TikTok Shop</span></div>
+  </div>
+</section>
+
+<footer>
+  <div><b>Jonathan Prabu</b> · Chennai, India (remote) · github.com/jonathanprabu-dev</div>
+  <div>Email <span class="sel">jonathanprabu@gmail.com</span></div>
+</footer>
+</div>
